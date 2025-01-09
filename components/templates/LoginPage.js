@@ -19,7 +19,7 @@ const LoginPage = () => {
         if(status === "authenticated"){
             router.replace("/");
         }
-    }, [status , router]);
+    }, [status ]);
     const loginHandler = async (e) => {
         e.preventDefault();
         const res = await signIn("credentials", {

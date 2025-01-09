@@ -3,7 +3,8 @@ import { CgProfile } from "react-icons/cg";
 import ProfileForm from "../module/ProfileForm"
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { getSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const ProfilePage = () => {
     const [name, setName] = useState("");
@@ -11,11 +12,18 @@ const ProfilePage = () => {
     const [password, setPassword] = useState("");
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
+
+    const {status} = getSession();
     useEffect(() => {
         fetchProfile();
     }, []);
-
+    useEffect(() => {
+        if(status === "authenticated"){
+            router.replace("/signin");
+        }
+    }, [status ]);
     const fetchProfile = async () => {
         try {
             const res = await fetch("/api/profile");
