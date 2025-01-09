@@ -17,4 +17,19 @@ function addtodo() {
 
 export default addtodo;
 
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/signin",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
+}
+
 

@@ -19,11 +19,9 @@ const ProfilePage = () => {
     useEffect(() => {
         fetchProfile();
     }, []);
-    useEffect(() => {
-        if(status === "authenticated"){
-            router.replace("/signin");
-        }
-    }, [status ]);
+    if(status === "authenticated"){
+        router.replace("/signin");
+    }
     const fetchProfile = async () => {
         try {
             const res = await fetch("/api/profile");

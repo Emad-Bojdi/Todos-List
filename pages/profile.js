@@ -11,4 +11,19 @@ const Profile =() => {
   )
 }
 
-export default Profile
+export default Profile;
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/signin",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
+}
