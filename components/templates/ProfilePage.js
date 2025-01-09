@@ -3,7 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import ProfileForm from "../module/ProfileForm"
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProfileData from "../module/ProfileData";
+
 
 const ProfilePage = () => {
     const [name, setName] = useState("");
