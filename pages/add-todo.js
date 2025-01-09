@@ -6,16 +6,14 @@ import { authOptions } from './api/auth/[...nextauth]';
 
 function addtodo() {
 
-  const status = getSession(authOptions);
-  const router = useRouter();
-  if (status === "unauthenticated")
-    router.push("/signin");
+
   return (
     <AddTodo />
   )
 }
 
 export default addtodo;
+
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
@@ -31,5 +29,4 @@ export async function getServerSideProps({ req }) {
 
   return { props: {} };
 }
-
 

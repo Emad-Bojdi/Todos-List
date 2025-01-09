@@ -1,5 +1,6 @@
 import React from 'react'
 import ProfilePage from '../components/templates/ProfilePage'
+import { getSession } from 'next-auth/react';
 
 
 const Profile =() => {

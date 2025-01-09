@@ -22,7 +22,7 @@ const todoUserSchema = new Schema({
     }
 })
 
-const User =models.User ||  model("User",todoUserSchema);
+const User =models?.User ||  model("User",todoUserSchema);
 
 
 export default User
