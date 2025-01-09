@@ -1,6 +1,6 @@
 "use client"
 
-import {useRouter} from "next/navigation";
+import {useRouter} from "next/router";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -17,7 +17,7 @@ const SignUpPage = () => {
     console.log(status)
     useEffect(() => {
         if(status === "authenticated"){
-            router.push("/");
+            router.replace("/");
         }
     }, [status]);
 

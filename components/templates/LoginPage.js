@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react'
 import { signIn, useSession } from 'next-auth/react';
 
@@ -30,7 +30,7 @@ const LoginPage = () => {
         console.log(res)
         if(!res.error){
             toast.success("Login successfully");
-            router.push("/");
+            router.replace("/");
         }
         if(res.error){
             toast.error("Invalid credentials")
